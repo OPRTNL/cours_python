@@ -29,6 +29,8 @@ def show_text(nom_str, age_int):
         print("Chapeau tout juste majeur")
     elif age_int < 10:
         print("vous êtes enfant")
+    elif age_int == 1 or age_int == 2
+        print("Wesh Bébé")
     elif age_int > 60:
         print("Vous êtes vieux")
     elif 60 >= age_int > 18:
