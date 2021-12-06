@@ -1,3 +1,6 @@
+from types import BuiltinMethodType
+
+
 def demander_age(nom_du_gars):
     age_int = 0
     while age_int == 0:
@@ -20,7 +23,19 @@ def demander_nom():
 def show_text(nom_str, age_int):
     print("Tu t'appelle " + nom_str + " et ton age est " + str(age_int) + " ans.")
     print("L'année prochaine tu aura " + str(age_int+1))
-    print("Vous êtes majeur" if age_int >= 18 else "Vous êtes mineur")
+    if age_int == 17:
+        print("presque adulte mon jeune")
+    elif age_int == 18:
+        print("Chapeau tout juste majeur")
+    elif age_int < 10:
+        print("vous êtes enfant")
+    elif age_int > 60:
+        print("Vous êtes vieux")
+    elif 60 >= age_int > 18:
+        print("Vous êtes majeur")
+    else:
+        print("Vous êtes mineur")
+
  
 
 #  demander la variable nom avec une vrai variable unique
