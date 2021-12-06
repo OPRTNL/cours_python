@@ -1,6 +1,10 @@
-#  demander les variable
+#  demander la variable nom avec une vrai variable unique
 nom = input("ton nom  :")
-#initialisation varaible age
+while nom == "":
+    print("le nom saisi est une valeur vide")
+    nom = input("ton nom  :")
+
+#initialisation varaible
 age = 0
 
 #boucle pour demander l'age en testant la validité 
