@@ -8,14 +8,16 @@ def demander_age():
             print("ERREUR : l'age n'est pas un nombre")
     return age_int
 
+def demander_nom():
+    nom_str = input("ton nom  :")
+    while nom_str == "":
+        print("le nom saisi est une valeur vide")
+        nom_str = input("ton nom  :")
+    return nom_str
+
 
 #  demander la variable nom avec une vrai variable unique
-nom = input("ton nom  :")
-while nom == "":
-    print("le nom saisi est une valeur vide")
-    nom = input("ton nom  :")
-
-#initialisation varaible
+nom = demander_nom()
 
 #boucle pour demander l'age en testant la validité 
 age = demander_age()
