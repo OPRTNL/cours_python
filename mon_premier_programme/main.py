@@ -16,14 +16,20 @@ def demander_nom():
         nom_str = input("ton nom  :")
     return nom_str
 
+
 def show_text(nom_str, age_int):
     print("Tu t'appelle " + nom_str + " et ton age est " + str(age_int) + " ans.")
     print("L'année prochaine tu aura " + str(age_int+1))
+    print("Vous êtes majeur" if age_int >= 18 else "Vous êtes mineur")
+ 
 
 #  demander la variable nom avec une vrai variable unique
-nom = demander_nom()
+nom_1 = demander_nom()
+age_1 = demander_age(nom_1)
 
 #boucle pour demander l'age en testant la validité 
-age = demander_age(nom)
+nom_2 = demander_nom()
+age_2 = demander_age(nom_2)
 
-show_text(nom, age)
+show_text(nom_1, age_1)
+show_text(nom_2, age_2)
