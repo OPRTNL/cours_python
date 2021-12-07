@@ -17,7 +17,7 @@ def demander_nom():
     return nom_str
 
 
-def show_text(nom_str, age_int):
+def show_text(nom_str, age_int, taille=0):
     print("Tu t'appelle " + nom_str + " et ton age est " + str(age_int) + " ans.")
     print("L'année prochaine tu aura " + str(age_int+1))
     if age_int == 17:
@@ -35,6 +35,9 @@ def show_text(nom_str, age_int):
     else:
         print("Vous êtes mineur")
 
+    if not taille == 0:
+        print(type(taille))
+        print("votre taille est " + str(taille) + "m")
  
 """
 #  demander la variable nom avec une vrai variable unique
@@ -49,9 +52,13 @@ show_text(nom_1, age_1)
 show_text(nom_2, age_2)
 """
 
-for i in range(0, 2):
+NB_PEOPLE = 1
+
+for i in range(0, NB_PEOPLE):
     print(i)
     nom = "personne " + str(i + 1)
     age = demander_age(nom)
 
-    show_text(nom, age)
+    show_text(nom, age, 1.89)
+
+    
