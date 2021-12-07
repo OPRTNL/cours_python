@@ -59,6 +59,5 @@ for i in range(0, NB_PEOPLE):
     nom = "personne " + str(i + 1)
     age = demander_age(nom)
 
-    show_text(nom, age, 1.89)
+    show_text(nom, age)
 
-    
