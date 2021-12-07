@@ -29,21 +29,20 @@ def ask_answer(list_of_possibilities):
             user_answer_str = input("Répondez en saisissant le numéro de la réponse")
             user_answer = int(user_answer_str)
             if not user_answer in range(1, len(list_of_possibilities) + 1):
-                print("le numéro de votre réponse ne correspond pas aux solutions proposées")
+                print("le numéro de votre réponse ne correspond pas aux solutions proposées") 
         except:
-            print("votre réponse n'es pas valide")
+            print("votre réponse n'est pas valide")
     return user_answer
 
 
 # Afficher la bonne réponse
-def ask_question(question, list_of_questions, right_answer):
+def ask_question(question, list_of_answers, right_answer):
     user_answer = 0
     while not user_answer == right_answer:
         print(question)
-        user_answer = ask_answer(list_of_questions)
-        if user_answer == right_answer:
-            print("bravo c'est la bonne réponse")
-        else:
-            print("mauvaise réponse merci de recommencer")
+        user_answer = ask_answer(list_of_answers)
+        print("bravo c'est la bonne réponse") if user_answer == right_answer else print("mauvaise réponse merci de recommencer")
+
+
 
 ask_question(question_a, answer_list, 1)
