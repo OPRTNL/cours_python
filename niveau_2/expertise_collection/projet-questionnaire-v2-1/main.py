@@ -15,15 +15,33 @@
 #
 # 4 questions
 
+def ask_for_choice(list):
+    rep = input(f"Votre réponse (choisissez un nombre entre 1 et {len(list)}) :")
+
+    try:
+        r = int(rep)
+        if r in range(0,len(list)):
+            return r     
+        else:
+            print (f"merci de saisir un nombre entre 1 et {len(list)}")
+            ask_for_choice(list)
+    except :
+        print(f"Merci de rentrer un nombre entre 1 et {len(list)}")
+        ask_for_choice(list)
+
+
 def poser_question(question):
     global score
+    ennonce_question = question[0]
+    reponses = question[1]
+    reponse_ok = question[2]
     print("QUESTION")
-    print("  " + question[0])
-    for i in question[1]:
-        print("  ",i)
+    print("  " + ennonce_question)
+    for i in range(len(reponses)):
+        print(f"{i + 1} - ",reponses[i])
         print()
-    reponse = input("Votre réponse : ")
-    if reponse == question[2]:
+    reponse_int = ask_for_choice(reponses)
+    if reponse_int - 1 == reponses.index(reponse_ok):
         print("Bonne réponse")
         score += 1
     else:
