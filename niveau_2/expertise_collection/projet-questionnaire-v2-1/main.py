@@ -20,14 +20,14 @@ def ask_for_choice(list):
 
     try:
         r = int(rep)
-        if r in range(0,len(list)):
-            return r     
-        else:
-            print (f"merci de saisir un nombre entre 1 et {len(list)}")
-            ask_for_choice(list)
+        if r in range(1,len(list) +1):
+            return r
+        
+        print (f"merci de saisir un nombre entre 1 et {len(list)}")
     except :
-        print(f"Merci de rentrer un nombre entre 1 et {len(list)}")
-        ask_for_choice(list)
+        print(f"ERREUR : Merci de rentrer uniquement un chiffre entre 1 et {len(list)}")
+
+    return ask_for_choice(list)
 
 
 def poser_question(question):
@@ -43,14 +43,19 @@ def poser_question(question):
     reponse_int = ask_for_choice(reponses)
     if reponse_int - 1 == reponses.index(reponse_ok):
         print("Bonne réponse")
-        score += 1
+        return True
     else:
         print("Mauvaise réponse")
+        return False
         
-    print()
-
 
 score = 0
+
+def lancer_questionnaire(questionnaire):
+    score = 0
+    for i in questionnaire :
+       if poser_question(i) : score +=1
+    print("Score final :", score)
 
 '''
     questionnaire[]
@@ -61,12 +66,15 @@ score = 0
 
 '''
 
-question1 = ("Quelle est la capitale de la France ?", ("Marseille", "Nice", "Paris", "Nantes"), "Paris")
 question2 = ("Quelle est la capitale de la l'Italie ?", ("Rome", "Venise", "Pise", "Florence"), "Rome")
+question1 = ("Quelle est la capitale de la France ?", ("Marseille", "Nice", "Paris", "Nantes"), "Paris")
 
-poser_question(question1)
-poser_question(question2)
+questionnaire = (question1, question2)
+
+
 # poser_question("Quelle est la capitale de la France ?", "Marseille", "Nice", "Paris", "Nantes", "c")
-#poser_question("Quelle est la capitale de l'Italie ?", "Rome", "Venise", "Pise", "Florence", "a")
+# poser_question("Quelle est la capitale de l'Italie ?", "Rome", "Venise", "Pise", "Florence", "a")
 
-print("Score final :", score)
+lancer_questionnaire(questionnaire)
+
+
