@@ -20,5 +20,9 @@ noms_len = sum([len(nom) for nom in noms])
 noms_len = len("".join(noms))
 
 
-print(noms_len)
+print(noms_len) 
+
+coucou = [1,2,3,4,5]
+
+print(coucou[1:3])
 
