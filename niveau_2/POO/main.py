@@ -13,8 +13,9 @@ class Personne:
         
     def Se_presenter(self):
         print("Bonjour je m'appelle : " + self.nom)
+        print("Je suis majeur" if self.is_major() else "Je suis mineur")
 
-    def is_major(self):
+    def is_major(self) -> bool:
         return self.age >= 18
 
 
