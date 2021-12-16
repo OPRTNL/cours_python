@@ -15,10 +15,11 @@ class Personne:
     def SePresenter(self):
         print("Bonjour, je m'appelle " + self.nom + ", j'ai " + str(self.age) + " ans")
         print(self.dire_le_genre())
+        e_optionnel = "" if self.genre else "e"
         if self.EstMajeur():
-            print("Je suis majeur")
+            print("Je suis majeur" + e_optionnel)
         else:
-            print("Je suis mineur")
+            print("Je suis mineur" + e_optionnel)
         print()
 
         print()
