@@ -28,5 +28,5 @@ class Personne:
 personne1 = Personne("Jean")
 personne1.SePresenter()
 
-personne1 = Personne("Emilie")
-personne1.SePresenter()
+personne2 = Personne("Emilie")
+personne2.SePresenter()
