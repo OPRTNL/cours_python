@@ -26,8 +26,12 @@ class Personne:
 
 ## UTILISATION
 
-personne_1 = Personne(age = 18)
-personne_2 = Personne("zob", 23)
+#personne_1 = Personne(age = 18)
+#personne_2 = Personne("zob", 23)
 
-personne_1.Donner_son_nom_et_son_age()
-personne_2.Donner_son_nom_et_son_age()
+#personne_1.Donner_son_nom_et_son_age()
+#personne_2.Donner_son_nom_et_son_age()
+
+liste_de_personnes = (Personne(age = 18),Personne("zob", 23),Personne())
+
+for i in liste_de_personnes : i.Donner_son_nom_et_son_age()
