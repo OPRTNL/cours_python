@@ -16,24 +16,6 @@
 # 4 questions
 
 
-def demander_reponse_numerique_utlisateur(min, max):
-    reponse_str = input("Votre réponse (entre " + str(min) + " et " + str(max) + ") :")
-    try:
-        reponse_int = int(reponse_str)
-        if min <= reponse_int <= max:
-            return reponse_int
-
-        print("ERREUR : Vous devez rentrer un nombre entre", min, "et", max)
-    except:
-        print("ERREUR : Veuillez rentrer uniquement des chiffres")
-    return demander_reponse_numerique_utlisateur(min, max)
-    
-
-'''
-titre = question[0]
-choix = question[1]
-bonne_reponse = question[2]
-'''
 def poser_question(question):
     # titre_question, r1, r2, r3, r4, choix_bonne_reponse
     choix = question[1]
@@ -65,19 +47,62 @@ def poser_question(question):
 
 '''
 
-def lancer_questionnaire(questionnaire):
-    score = 0
-    for question in questionnaire:
-        if poser_question(question):
-            score += 1
-    print("Score final :", score, "sur", len(questionnaire))
+class Question():
+    INDEX = 0
+    
+    def __init__(self,question : str, reponses : list , bonne_reponse : str):
+        self.question = question
+        self.reponses = reponses
+        self.bonne_reponse = bonne_reponse
+        self.numero = Question.INDEX + 1
+        Question.INDEX = self.numero
+        
+
+    def show_question(self):
+        print(self.question + " N° " + str(self.numero))
+        nombre = 1
+        for i in self.reponses:
+            print("  " + str(nombre) + " - " + i)
+            nombre += 1
+
+    def demander_la_reponse(self) -> bool:
+        min = 1
+        max = len(self.reponses)
+        reponse_str = input("Votre réponse (entre " + str(min) + " et " + str(max) + ") :")
+        try:
+            reponse_int = int(reponse_str)
+            if min <= reponse_int <= max:
+                return True if self.reponses[reponse_int -1] == self.bonne_reponse else False
+
+            print("ERREUR : Vous devez rentrer un nombre entre", min, "et", max)
+        except:
+            print("ERREUR : Veuillez rentrer uniquement des chiffres")
+        return self.demander_la_reponse()        
+
+class Qcm():
+    def __init__(self, questions : list) -> None:
+        self.questions = questions
+        self.score = 0
+        
+    def poser_les_questions(self):
+        print("--------- Bienvenu dans le questionnaire ! -------------")
+        for question in self.questions:
+            question.show_question()
+            if question.demander_la_reponse():
+                self.score += 1
+                print(f"Bonne reponse ! Votre score {str(self.score)}")
+            else :
+                print(f"Mauvaise response ;( Votre score {str(self.score)}")
+            
+
+        
 
 questionnaire = (
-    ("Quelle est la capitale de la France ?", ("Marseille", "Nice", "Paris", "Nantes", "Lille"), "Paris"), 
-    ("Quelle est la capitale de l'Italie ?", ("Rome", "Venise", "Pise", "Florence"), "Rome"),
-    ("Quelle est la capitale de la Belgique ?", ("Anvers", "Bruxelles", "Bruges", "Liège"), "Bruxelles")
+    Question("Quelle est la capitale de la France ?", ("Marseille", "Nice", "Paris", "Nantes", "Lille"), "Paris"), 
+    Question("Quelle est la capitale de l'Italie ?", ("Rome", "Venise", "Pise", "Florence"), "Rome"),
+    Question("Quelle est la capitale de la Belgique ?", ("Anvers", "Bruxelles", "Bruges", "Liège"), "Bruxelles")
                 )
 
-lancer_questionnaire(questionnaire)
+Qcm1 = Qcm(questionnaire)
 
-
+Qcm1.poser_les_questions()
