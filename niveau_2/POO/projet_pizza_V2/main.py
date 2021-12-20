@@ -59,7 +59,6 @@ for pizza in pizzas:
     pizza.ShowPizz()
     print("")
 
-print(str(PizzaPersonnalisee.INDEX))
 
 
 """
