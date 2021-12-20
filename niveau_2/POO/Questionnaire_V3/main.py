@@ -26,7 +26,6 @@ class Question:
         self.numero = Question.INDEX + 1
         Question.INDEX = self.numero
         
-
     def show_question(self):
         print(self.question + " N° " + str(self.numero))
         nombre = 1
@@ -56,7 +55,7 @@ class Qcm:
         
     def poser_les_questions(self):
         print("")
-        print("--------- Bienvenu dans le questionnaire ! -------------")
+        print("-----------> Bienvenu dans le questionnaire ! <-------------")
         print("")
         for question in self.questions:
             question.show_question()
@@ -68,7 +67,7 @@ class Qcm:
                 print("")
                 print(f"!! Mauvaise response => Votre score {str(self.score)} !!")
             print("")
-        print(f"$$$$$$$$$$$$$    VOTRE SCORE FINAL {self.score} sur {len(self.questions)}  $$$$$$$$$$$$$$$$$$$")
+        print(f"$$$$$$$$$$$$$  VOTRE SCORE FINAL {self.score} sur {len(self.questions)}  $$$$$$$$$$$$$$$$$$$")
             
 
         
