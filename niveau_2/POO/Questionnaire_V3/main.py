@@ -16,38 +16,7 @@
 # 4 questions
 
 
-def poser_question(question):
-    # titre_question, r1, r2, r3, r4, choix_bonne_reponse
-    choix = question[1]
-    bonne_reponse = question[2]
-    print("QUESTION")
-    print("  " + question[0])
-    for i in range(len(choix)):
-        print("  ", i+1, "-", choix[i])
-
-    print()
-    resultat_response_correcte = False
-    reponse_int = demander_reponse_numerique_utlisateur(1, len(choix))
-    if choix[reponse_int-1].lower() == bonne_reponse.lower():
-        print("Bonne réponse")
-        resultat_response_correcte = True
-    else:
-        print("Mauvaise réponse")
-        
-    print()
-    return resultat_response_correcte
-
-
-'''
-    questionnaire[]
-        question
-            titre = "Quelle est la capitale de la France ?"
-            reponses = ("Marseille", "Nice", "Paris", "Nantes")
-            bonne_reponse = "Paris"
-
-'''
-
-class Question():
+class Question:
     INDEX = 0
     
     def __init__(self,question : str, reponses : list , bonne_reponse : str):
@@ -79,20 +48,27 @@ class Question():
             print("ERREUR : Veuillez rentrer uniquement des chiffres")
         return self.demander_la_reponse()        
 
-class Qcm():
+
+class Qcm:
     def __init__(self, questions : list) -> None:
         self.questions = questions
         self.score = 0
         
     def poser_les_questions(self):
+        print("")
         print("--------- Bienvenu dans le questionnaire ! -------------")
+        print("")
         for question in self.questions:
             question.show_question()
             if question.demander_la_reponse():
                 self.score += 1
-                print(f"Bonne reponse ! Votre score {str(self.score)}")
+                print("")
+                print(f" ^^ Bonne reponse => Votre score {str(self.score)} ^^")
             else :
-                print(f"Mauvaise response ;( Votre score {str(self.score)}")
+                print("")
+                print(f"!! Mauvaise response => Votre score {str(self.score)} !!")
+            print("")
+        print(f"$$$$$$$$$$$$$    VOTRE SCORE FINAL {self.score} sur {len(self.questions)}  $$$$$$$$$$$$$$$$$$$")
             
 
         
@@ -103,6 +79,4 @@ questionnaire = (
     Question("Quelle est la capitale de la Belgique ?", ("Anvers", "Bruxelles", "Bruges", "Liège"), "Bruxelles")
                 )
 
-Qcm1 = Qcm(questionnaire)
-
-Qcm1.poser_les_questions()
+Qcm(questionnaire).poser_les_questions()
