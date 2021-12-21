@@ -11,9 +11,12 @@ print(reverse_string(c))
 
 s = "Un chasseur sachant chasser doit savoir chasser sans son chien"
 
+
 def min_max(s):
     result = s.split(" ")
+    result.sort()
     result.sort(key = lambda x : len(x))
     return (result[0], result[-1])
+
 
 print(min_max(s))
