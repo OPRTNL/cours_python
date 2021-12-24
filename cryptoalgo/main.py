@@ -57,4 +57,23 @@ def crypto():
         
 
 
+def decrypto():
+    # prendre mdp
+    a = get_pwd()
+    # mdp => liste
+    b = get_key()
+    # prendre clef => liste
+    a_list = list(a)
+    # alonger clef de la taille du mdp
+    b_list = []
+    index = 0
+    for i in range(len(a)):
+        b_list.append(b[index])
+        index += 1
+        if index > len(b) : index = 0
+    # soustraire mdp - clef dans une liste avec un dictionnaire lettre valeur
+    # boucler sur la liste avec condition < 0 +26
+
+
 crypto()
+
