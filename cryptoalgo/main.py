@@ -35,19 +35,11 @@ def crypto():
         if index > len(k_list) -1 :
             index = 0
 
-    numbr_p = []
-
-    for i in range(len(p_list)):
-        numbr_p.append((alpha_num[p_list[i]] + alpha_num[k_list_p[i]]))
-    
-    
-    index =0
     encrypted_pwd = ""
 
-    for i in numbr_p:
-        index = i
-        if index > 26:
-            index -= 26
+    for i in range(len(p_list)):
+        index = alpha_num[p_list[i]] + alpha_num[k_list_p[i]]
+        if index > 26: index -= 26
         encrypted_pwd += num_alpha[index]
         
     print("Votre cryptage : " , encrypted_pwd)
@@ -55,13 +47,9 @@ def crypto():
 
 
 def decrypto():
-    # prendre mdp
     a = get_pwd()
-    # mdp => liste
     b = get_key()
-    # prendre clef => liste
     a_list = list(a)
-    # alonger clef de la taille du mdp
     b_list = []
     index = 0
     for i in range(len(a)):
@@ -69,10 +57,7 @@ def decrypto():
         index += 1
         if index >= len(b) : index = 0
 
-    # soustraire mdp - clef dans une liste avec un dictionnaire lettre valeur
-    # boucler sur la liste avec condition < 0 +26
     str_alpha = ""
-    numero = 0
     for i in range(len(a_list)):
         numero = alpha_num[a_list[i]] - alpha_num[b_list[i]]
         if numero < 1 : numero += 26
