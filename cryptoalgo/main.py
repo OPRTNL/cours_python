@@ -20,7 +20,7 @@ def get_pwd():
 def get_key():
     return input("votre clef d'encryption (caractère alphabétiques minuscule uniquement) : ")
 
-
+"""
 def crypto():
     p = get_pwd()
     k = get_key()
@@ -64,6 +64,29 @@ def decrypto():
         str_alpha += num_alpha[numero]
 
     print("Votre decryptage : ",str_alpha)
+"""
 
-crypto()
-decrypto()
+def unitcrypto(a_str : str, b_str : str, callback_operator) -> str:
+    a_list = list(a_str)
+    b_list = []
+    index = 0
+    for i in range(len(a_list)):
+        b_list.append(b_str[index])
+        index += 1
+        if index >= len(b_str) : index = 0
+
+    str_alpha = ""
+    for i in range(len(a_list)):
+        numero = callback_operator(alpha_num[a_list[i]], alpha_num[b_list[i]])
+        if numero > 26 : numero = callback_operator(numero, -26)
+        elif numero < 1 : numero = callback_operator(numero, -26)
+        str_alpha += num_alpha[numero]
+    
+    return str_alpha
+
+a = get_pwd()
+b = get_key()
+print(unitcrypto(a, b, lambda x, y : x + y))
+a = get_pwd()
+b = get_key()
+print(unitcrypto(a, b, lambda x, y : x - y))
