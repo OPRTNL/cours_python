@@ -2,20 +2,17 @@ alpha_str = "abcdefghijklmnopqrstuvwxyz"
 
 alpha = list(alpha_str)
 
-print(alpha)
 
 numbr = []
 
 for i in range(1,27):
     numbr.append(i)
 
-print(numbr)
 
 alpha_num = {alpha[i] : numbr[i] for i in range(0,len(numbr))}
 num_alpha = {numbr[i] : alpha[i] for i in range(0,len(numbr))}
 
 
-print(alpha_num)
 
 def get_pwd():
     return input("Mot a encrypter (caractère alphabétiques minuscule uniquement) : ")
@@ -70,10 +67,18 @@ def decrypto():
     for i in range(len(a)):
         b_list.append(b[index])
         index += 1
-        if index > len(b) : index = 0
+        if index >= len(b) : index = 0
+
     # soustraire mdp - clef dans une liste avec un dictionnaire lettre valeur
+    str_alpha = ""
+    numero = 0
+    for i in range(len(a_list)):
+        numero = alpha_num[a_list[i]] - alpha_num[b_list[i]]
+        if numero < 1 : numero += 26
+        str_alpha += num_alpha[numero]
+
+    print("Votre decryptage : ",str_alpha)
     # boucler sur la liste avec condition < 0 +26
 
-
 crypto()
-
+decrypto()
