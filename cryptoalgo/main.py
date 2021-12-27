@@ -70,6 +70,7 @@ def decrypto():
         if index >= len(b) : index = 0
 
     # soustraire mdp - clef dans une liste avec un dictionnaire lettre valeur
+    # boucler sur la liste avec condition < 0 +26
     str_alpha = ""
     numero = 0
     for i in range(len(a_list)):
@@ -78,7 +79,6 @@ def decrypto():
         str_alpha += num_alpha[numero]
 
     print("Votre decryptage : ",str_alpha)
-    # boucler sur la liste avec condition < 0 +26
 
 crypto()
 decrypto()
