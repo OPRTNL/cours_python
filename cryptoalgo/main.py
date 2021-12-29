@@ -13,7 +13,6 @@ alpha_num = {alpha[i] : numbr[i] for i, v in enumerate(numbr)}
 num_alpha = {numbr[i] : alpha[i] for i, v in enumerate(numbr)}
 
 
-
 def get_pwd():
     return input("Mot a encrypter (caractère alphabétiques minuscule uniquement) : ")
 
