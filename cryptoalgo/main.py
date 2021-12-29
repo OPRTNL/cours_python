@@ -19,7 +19,7 @@ def get_pwd():
 def get_key():
     return input("votre clef d'encryption (caractère alphabétiques minuscule uniquement) : ")
 
-"""
+
 def crypto():
     p = get_pwd()
     k = get_key()
@@ -63,8 +63,8 @@ def decrypto():
         str_alpha += num_alpha[numero]
 
     print("Votre decryptage : ",str_alpha)
-"""
 
+<<<<<<< HEAD
 def unitcrypto(a_str : str, b_str : str, callback_operator) -> str:
     a_list = list(a_str)
     b_list = []
@@ -89,3 +89,7 @@ print(unitcrypto(a, b, lambda x, y : x + y))
 a = get_pwd()
 b = get_key()
 print(unitcrypto(a, b, lambda x, y : x - y))
+=======
+crypto()
+decrypto()
+>>>>>>> parent of eb8fc51 (refacto)
