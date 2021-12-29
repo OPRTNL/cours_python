@@ -9,8 +9,8 @@ for i in range(1,27):
     numbr.append(i)
 
 
-alpha_num = {alpha[i] : numbr[i] for i in range(0,len(numbr))}
-num_alpha = {numbr[i] : alpha[i] for i in range(0,len(numbr))}
+alpha_num = {alpha[i] : numbr[i] for i, v in enumerate(numbr)}
+num_alpha = {numbr[i] : alpha[i] for i, v in enumerate(numbr)}
 
 
 
@@ -70,13 +70,13 @@ def unitcrypto(a_str : str, b_str : str, callback_operator) -> str:
     a_list = list(a_str)
     b_list = []
     index = 0
-    for i in range(len(a_list)):
+    for i in enumerate(a_list):
         b_list.append(b_str[index])
         index += 1
         if index >= len(b_str) : index = 0
 
     str_alpha = ""
-    for i in range(len(a_list)):
+    for i, v in enumerate(a_list):
         numero = callback_operator(alpha_num[a_list[i]], alpha_num[b_list[i]])
         if numero > 26 : numero = callback_operator(numero, -26)
         elif numero < 1 : numero = callback_operator(numero, -26)
