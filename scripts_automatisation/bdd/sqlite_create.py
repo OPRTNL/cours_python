@@ -1,6 +1,6 @@
 import sqlite3
 
-connexion = sqlite3.connect("albums_2.db")
+connexion = sqlite3.connect("albums_1.db")
 curseur = connexion.cursor()
 
 curseur.execute("""CREATE TABLE artiste (
