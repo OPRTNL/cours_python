@@ -1,0 +1,46 @@
+LANGAGE SQL
+-----------
+
+INTEGER : int
+VARCHAR : str
+
+artiste
+- artiste_id
+- nom
+
+album
+- album_id
+- artiste_id
+- titre
+- annee_sortie
+
+CREATE TABLE artiste (
+    artiste_id INTEGER NOT NULL PRIMARY KEY, 
+    nom VARCHAR);
+
+CREATE TABLE album (
+    album_id INTEGER NOT NULL PRIMARY KEY, 
+    artiste_id INTEGER REFERENCES artiste,
+    titre VARCHAR,
+    annee_sortie INTEGER);
+
+INSERT INTO artiste (nom) VALUES ("Michael Jackson");
+INSERT INTO album (artiste_id, titre, annee_sortie) VALUES (1, "Thriller", 1983);
+
+UPDATE album SET annee_sortie = 1982 WHERE titre = "Thriller";
+
+DELETE FROM artiste WHERE nom = "Madonna"
+
+SELECT * FROM artiste
+SELECT nom FROM artiste
+SELECT * FROM album WHERE annee_sortie > 1990;
+
+SELECT nom, titre FROM album a JOIN artiste ar ON a.artiste_id = ar.artiste_id
+
+SELECT titre FROM album a JOIN artiste ar ON a.artiste_id = ar.artiste_id AND ar.nom = "Celine Dion"
+
+
+
+
+
+
