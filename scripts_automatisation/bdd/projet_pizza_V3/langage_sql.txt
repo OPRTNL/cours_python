@@ -20,16 +20,24 @@ ingredient
 - nom
 - ingredient_id
 
+CREATE TABLE ingredient (
+    ingredient_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+    nom VARCHAR
+    );
 
-CREATE TABLE artiste (
-    artiste_id INTEGER NOT NULL PRIMARY KEY, 
-    nom VARCHAR);
+CREATE TABLE pizza (
+    pizza_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+    nom VARCHAR,
+    prix FLOAT,
+    ingredient_list_id REFERENCES ingredient_list,
+    vegan BOOLEAN
+    );
 
-CREATE TABLE album (
-    album_id INTEGER NOT NULL PRIMARY KEY, 
-    artiste_id INTEGER REFERENCES artiste,
-    titre VARCHAR,
-    annee_sortie INTEGER);
+CREATE TABLE ingredient_list (
+    ingredient_list_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    pizza_id REFERENCES pizza,
+    ingredient_id REFERENCES ingredient
+    );
 
 INSERT INTO artiste (nom) VALUES ("Michael Jackson");
 INSERT INTO album (artiste_id, titre, annee_sortie) VALUES (1, "Thriller", 1983);
