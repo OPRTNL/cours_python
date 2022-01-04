@@ -4,20 +4,22 @@ LANGAGE SQL
 INTEGER : int
 VARCHAR : str
 
-artist
-- artiste_id
-- nom
-
 pizza
 - pizza_id
-- 
+- nom
+- prix
+- ingredient_list_id
+- vegan
 
+ingredient_list
+_ ingredient_list_id
+- pizza id
+- ingredient_id
 
-album
-- album_id
-- artiste_id
-- titre
-- annee_sortie
+ingredient
+- nom
+- ingredient_id
+
 
 CREATE TABLE artiste (
     artiste_id INTEGER NOT NULL PRIMARY KEY, 
