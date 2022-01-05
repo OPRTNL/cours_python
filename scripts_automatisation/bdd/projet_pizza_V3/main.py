@@ -1,4 +1,5 @@
 from models import Pizza, PizzaPersonnalisee
+from sqlite_read import db_read
 
 pizzas = [Pizza("Margarita", 8.9, ["Tomates","Mozzarella","Basilic"], True), 
           Pizza("Reine", 7.6, ["Tomates","Mozzarella","Jambon", "Champignon"]), 
