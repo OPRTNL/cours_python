@@ -9,11 +9,15 @@ def db_read():
     pizzas = c.fetchall()
 
     print(pizzas)
+    pizza_args = []
 
     for pizza in pizzas:
-        liste_ingredient = c.execute(f'SELECT * FROM ingredient_list AS list JOIN ingredient AS ing ON list.ingredient_id = ing.ingredient_id ingredient WHERE pizza_id = {pizza[0]};').fetchall
-        print(liste_ingredient)
-
+        raw_liste_ingredients = c.execute(f'SELECT ingredient.nom FROM ingredient_list JOIN ingredient ON ingredient_list.ingredient_id = ingredient.ingredient_id WHERE ingredient_list.pizza_id={pizza[0]};')
+        liste_ingredient = list(i[0] for i in raw_liste_ingredients)
+        liste_pizza = list(pizza)
+        liste_pizza[3] = liste_ingredient
+        del liste_pizza[0]
+        pizza_args.append(liste_pizza)
+        
     c.close()
-
-db_read()
+    return pizza_args

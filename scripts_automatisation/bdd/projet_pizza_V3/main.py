@@ -1,13 +1,14 @@
 from models import Pizza, PizzaPersonnalisee
 from sqlite_read import db_read
 
-pizzas = [Pizza("Margarita", 8.9, ["Tomates","Mozzarella","Basilic"], True), 
-          Pizza("Reine", 7.6, ["Tomates","Mozzarella","Jambon", "Champignon"]), 
-          Pizza("4 fromages", 10.3, ["Tomates","Mozzarella","Bleu", "Saint-Nectaire", "Comté"], True),
-          Pizza("Orientale", 9.9, ["Tomates","Mozzarella", "Merguez", "Basilic"]),
-          PizzaPersonnalisee(),
-          PizzaPersonnalisee()]
+pizza_list = db_read()
+pizzas =[]
 
+for i in pizza_list:
+    print(i)
+    pizzas.append(Pizza.From_Data(i))
+
+pizzas += (PizzaPersonnalisee(),PizzaPersonnalisee())
 
 
 print("")

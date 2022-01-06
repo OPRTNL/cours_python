@@ -6,6 +6,10 @@ class Pizza:
         self.prix = prix
         self.ingredients = ingredients #== [] : self.DemanderIngredients()
         self.vegan = vegan
+    
+    def From_Data(list : list):
+        p = Pizza(list[0],list[1],list[2],list[3] == 1)
+        return p
 
     def ShowPizz(self):
         vegetarienne = (" - " + self.EstVegetarienne()) if self.vegan else ""
