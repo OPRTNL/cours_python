@@ -5,13 +5,15 @@ class Pizza:
     def __init__(self, index, nom : str,prix : float ,ingredients : list = [], vegan : bool = False):
         self.nom =nom
         self.prix = prix
-        self.ingredients = ingredients #== [] : self.DemanderIngredients()
+        self.ingredients = ingredients #== [] : self.DemanderIngredients()  jv;b
         self.vegan = vegan
         self.index = index
         Pizza.INDEX = self.index
     
     def From_Data(list : list):
-        p = Pizza(list[0],list[1],list[2],list[3], list[4]==1)
+        print(list[3])
+        i = (Ingredient.From_Data(i) for i in list[3])
+        p = Pizza(list[0],list[1],list[2],i, list[4]==1)
         return p
 
     def ShowPizz(self):
@@ -51,8 +53,14 @@ class PizzaPersonnalisee(Pizza):
         self.prix = self.PRIX_DE_BASE + (len(self.ingredients)*self.PRIX_PAR_INGREDIENTS)
 
 class Ingredient:
+    INDEX = 0
+
     def __init__(self, index : int, nom : str, vegan : bool):
         self.index = index
+        Ingredient.INDEX = self.index
         self.nom = nom
         self.vegan = vegan
 
+    def From_Data(list : list):
+        i = Ingredient(list[0],list[1],list[2]==1)
+        return i
