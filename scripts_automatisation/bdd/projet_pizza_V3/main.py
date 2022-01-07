@@ -5,7 +5,6 @@ pizza_list = db_read()
 pizzas =[]
 
 for i in pizza_list:
-    print(i)
     pizzas.append(Pizza.From_Data(i))
 
 pizzas += (PizzaPersonnalisee(),PizzaPersonnalisee())

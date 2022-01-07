@@ -1,14 +1,17 @@
 class Pizza:
     TYPE_DE_PLAT = "PIZZA"
+    INDEX = 0
 
-    def __init__(self, nom : str,prix : float ,ingredients : list = [], vegan : bool = False):
+    def __init__(self, index, nom : str,prix : float ,ingredients : list = [], vegan : bool = False):
         self.nom =nom
         self.prix = prix
         self.ingredients = ingredients #== [] : self.DemanderIngredients()
         self.vegan = vegan
+        self.index = index
+        Pizza.INDEX = self.index
     
     def From_Data(list : list):
-        p = Pizza(list[0],list[1],list[2],list[3] == 1)
+        p = Pizza(list[0],list[1],list[2],list[3], list[4]==1)
         return p
 
     def ShowPizz(self):
@@ -26,12 +29,11 @@ class Pizza:
 class PizzaPersonnalisee(Pizza):
     PRIX_DE_BASE = 7
     PRIX_PAR_INGREDIENTS = 1.2
-    INDEX = 0
 
     def __init__(self):
-        super().__init__("Personnalisee", 0, [])
-        self.index = self.INDEX + 1
-        PizzaPersonnalisee.INDEX = self.index
+        super().__init__(Pizza.INDEX,"Personnalisee", 0, [])
+        self.index = Pizza.INDEX + 1
+        Pizza.INDEX = self.index
         self.nom = self.nom + " " + str(self.index)
         self.demander_ingredient_utilisateur()
         self.calculer_le_prix()
@@ -47,3 +49,10 @@ class PizzaPersonnalisee(Pizza):
 
     def calculer_le_prix(self):
         self.prix = self.PRIX_DE_BASE + (len(self.ingredients)*self.PRIX_PAR_INGREDIENTS)
+
+class Ingredient:
+    def __init__(self, index : int, nom : str, vegan : bool):
+        self.index = index
+        self.nom = nom
+        self.vegan = vegan
+
