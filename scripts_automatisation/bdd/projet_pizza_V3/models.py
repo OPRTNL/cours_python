@@ -65,7 +65,7 @@ class Ingredient:
         self.nom = nom
         self.vegan = vegan
         Ingredient.OCCCURENCE_LIST.append(self)
-        
+
 
     def From_Data(list : list):
         for i in Ingredient.OCCCURENCE_LIST:
