@@ -1,3 +1,5 @@
+from sqlite_update import db_create, search_name_in_db
+
 class Pizza:
     TYPE_DE_PLAT = "PIZZA"
     INDEX = 0
@@ -11,15 +13,15 @@ class Pizza:
         Pizza.INDEX = self.index
     
     def From_Data(list : list):
-        print(list[3])
-        i = (Ingredient.From_Data(i) for i in list[3])
+        i = [Ingredient.From_Data(i) for i in list[3]]
+        print(i)
         p = Pizza(list[0],list[1],list[2],i, list[4]==1)
         return p
 
     def ShowPizz(self):
         vegetarienne = (" - " + self.EstVegetarienne()) if self.vegan else ""
         print(self.TYPE_DE_PLAT + " " + self.nom + " : " + str(self.prix) + " €"+ vegetarienne)
-        print(", ".join(self.ingredients))
+        print(", ".join([i.nom for i in self.ingredients]))
         print("")
 
     def EstVegetarienne(self):
@@ -45,14 +47,16 @@ class PizzaPersonnalisee(Pizza):
         print(f"Ingredients pour la pizza personnalisée {str(self.index)}")
         ingredient = input("Ajouter un nouvel ingrédient (Enter pour terminer) :")
         if not ingredient == "":
-            self.ingredients.append(ingredient)
-            print(f"Vous avez {len(self.ingredients)} ingredient(s) à votre pizza : {', '.join(self.ingredients)}")
+            vegan = input("Cet ingredient est-il vegetarien ? (1 : oui / 0 : non) ")
+            self.ingredients.append(Ingredient.From_Name(ingredient, vegan == 1))
+            print(f"Vous avez {len(self.ingredients)} ingredient(s) à votre pizza : {', '.join([i.nom for i in self.ingredients])}")
             return self.demander_ingredient_utilisateur()
 
     def calculer_le_prix(self):
         self.prix = self.PRIX_DE_BASE + (len(self.ingredients)*self.PRIX_PAR_INGREDIENTS)
 
 class Ingredient:
+    OCCCURENCE_LIST = []
     INDEX = 0
 
     def __init__(self, index : int, nom : str, vegan : bool):
@@ -60,7 +64,24 @@ class Ingredient:
         Ingredient.INDEX = self.index
         self.nom = nom
         self.vegan = vegan
+        Ingredient.OCCCURENCE_LIST.append(self)
+        
 
     def From_Data(list : list):
+        for i in Ingredient.OCCCURENCE_LIST:
+            if i.index == list[0]:
+                return i
         i = Ingredient(list[0],list[1],list[2]==1)
         return i
+
+    def From_Name(name : str, vegan ):
+        for i in Ingredient.OCCCURENCE_LIST:
+            if i.nom == name and i.vegan == vegan:
+                return i
+        a = Ingredient.INDEX + 1 
+        i = Ingredient(a,name,vegan)
+        return i
+
+    
+ #   def new(name, vegan):
+ #       db_create("ingredient",name,vegan)

@@ -1,4 +1,5 @@
 import sqlite3
+from sqlite_update import search_name_in_db, db_create
 connexion = sqlite3.connect("pizzas_1.db")
 c = connexion.cursor()
 
@@ -30,18 +31,12 @@ c.execute('INSERT INTO pizza (nom, prix, vegan) VALUES ("Orientale", 8.9, False)
 
 pizza_ingredients = ([1, [("Tomates",1),("Mozzarella",1),("Basilic",1)]], [2,[("Tomates",1),("Mozzarella",1),("Jambon",0), ("Champignon",1)]], [3,[("Tomates",1),("Mozzarella",1),("Bleu",1), ("Saint-Nectaire",1), ("Comté",1)]],[4,[("Tomates",1),("Mozzarella",1), ("Merguez",0), ("Basilic",1)]])
 
-def search_name_in_db(table : str, occurence : str, cursor):
-    cursor.execute(f'SELECT * FROM {table} where nom = "{occurence}"')
-    query = cursor.fetchall()
-    if len(query) == 0: return False
-    return query
 
 for pizza in pizza_ingredients:
     for i in pizza[1]:
         if not search_name_in_db("ingredient", i[0], c):
             c.execute(f'INSERT INTO ingredient (nom, vegan) VALUES ("{i[0]}",{i[1]});')
         ingredient_index = search_name_in_db("ingredient",i[0],c)
-        print(ingredient_index)
         c.execute(f'INSERT INTO ingredient_list (pizza_id,ingredient_id) VALUES ({pizza[0]}, {ingredient_index[0][0]})')
 
 
