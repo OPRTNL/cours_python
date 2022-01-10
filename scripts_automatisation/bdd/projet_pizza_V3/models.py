@@ -1,4 +1,5 @@
-from sqlite_update import db_create, search_name_in_db
+import sqlite3
+from sqlite_update import db_create
 
 class Pizza:
     TYPE_DE_PLAT = "PIZZA"
@@ -7,15 +8,14 @@ class Pizza:
     def __init__(self, index, nom : str,prix : float ,ingredients : list = [], vegan : bool = False):
         self.nom =nom
         self.prix = prix
-        self.ingredients = ingredients #== [] : self.DemanderIngredients()  jv;b
+        self.ingredients = ingredients #== [] : self.DemanderIngredients()
         self.vegan = vegan
         self.index = index
         Pizza.INDEX = self.index
     
     def From_Data(list : list):
         i = [Ingredient.From_Data(i) for i in list[3]]
-        print(i)
-        p = Pizza(list[0],list[1],list[2],i, list[4]==1)
+        p = Pizza(list[0],list[1],list[2],i, list[4] == 1)
         return p
 
     def ShowPizz(self):
@@ -48,7 +48,7 @@ class PizzaPersonnalisee(Pizza):
         ingredient = input("Ajouter un nouvel ingrédient (Enter pour terminer) :")
         if not ingredient == "":
             vegan = input("Cet ingredient est-il vegetarien ? (1 : oui / 0 : non) ")
-            self.ingredients.append(Ingredient.From_Name(ingredient, vegan == 1))
+            self.ingredients.append(Ingredient.From_Name(ingredient, vegan == "1"))
             print(f"Vous avez {len(self.ingredients)} ingredient(s) à votre pizza : {', '.join([i.nom for i in self.ingredients])}")
             return self.demander_ingredient_utilisateur()
 
@@ -74,13 +74,16 @@ class Ingredient:
         i = Ingredient(list[0],list[1],list[2]==1)
         return i
 
-    def From_Name(name : str, vegan ):
+    def From_Name(name : str, arg):
         for i in Ingredient.OCCCURENCE_LIST:
-            if i.nom == name and i.vegan == vegan:
+            if i.nom == name and i.vegan == arg:
                 return i
-        a = Ingredient.INDEX + 1 
-        i = Ingredient(a,name,vegan)
-        return i
+        a = Ingredient.INDEX + 1
+        print(arg)
+        ing = Ingredient(a,name,arg == 1)
+        print(ing.vegan)
+        db_create("ingredient",ing.nom,ing.vegan)
+        return ing
 
     
  #   def new(name, vegan):

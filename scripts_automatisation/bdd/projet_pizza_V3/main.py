@@ -1,6 +1,9 @@
 from models import Ingredient, Pizza, PizzaPersonnalisee
 from sqlite_read import db_read
+import sqlite3
 
+connexion = sqlite3.connect("pizzas_1.db")
+c = connexion.cursor()
 
 pizza_list = db_read()
 pizzas =[]
