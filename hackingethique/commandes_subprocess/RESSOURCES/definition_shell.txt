@@ -1,0 +1,3 @@
+Le shell (ou interface système en français) est un programme qui reçoit des commandes informatiques données par un utilisateur à partir de son clavier pour les envoyer au système d’exploitation qui se chargera de les exécuter.
+
+Aux débuts de l’informatique, le shell était la seule interface utilisateur disponible sur un système de type Unix tel que Linux. De nos jours et avec l’arrivée de la souris, tous les ordinateurs utilisent des interfaces utilisateur graphiques (GUI, pour « graphical user interface ») comme macOS ou Windows 10, en plus des interfaces de ligne de commande (CLI, pour « command line interface »), comme le shell.
