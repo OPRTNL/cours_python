@@ -1,0 +1,190 @@
+body {
+    background-color: #8BA1BB;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.centre {
+    text-align: center;
+    width: 100%;
+}
+
+p.categorie {
+    background-color: black;
+    color: white;
+    display: inline-block;
+    padding: 10px 18px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+div.contenu {
+    background-color: white;
+    margin : 60px 10% 80px 10%;
+    padding: 30px;
+    margin-top: 0;
+    min-width: 350px;
+}
+
+.ligne {
+    background-color: black;
+    height: 1px;
+    width: 100px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 12px;
+    margin-top: 10px;
+}
+
+p.description {
+    text-align: center;
+    max-width: 400px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+div.categorie {
+    margin-top: 60px;
+    margin-bottom: -18px;
+}
+
+div.photoinst {
+    position: relative; 
+}
+
+img.photoinst {
+    display:block; margin-bottom: 0;
+}
+
+table.photoinst {
+    position: absolute; 
+    bottom: 0; 
+    width:100%; 
+    color: white; 
+    background-color: #6d829dC0; 
+    height:80px;
+}
+
+table.photoinst td {
+    text-align: center;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+table.photoinst th {
+    vertical-align: bottom;
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 8px;
+}            body {
+    background-color: #8BA1BB;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.centre {
+    text-align: center;
+    width: 100%;
+}
+
+p.categorie {
+    background-color: black;
+    color: white;
+    display: inline-block;
+    padding: 10px 18px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+div.contenu {
+    background-color: white;
+    margin : 60px 10% 80px 10%;
+    padding: 30px;
+    margin-top: 0;
+    min-width: 350px;
+}
+
+.ligne {
+    background-color: black;
+    height: 1px;
+    width: 100px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 12px;
+    margin-top: 10px;
+}
+
+p.description {
+    text-align: center;
+    max-width: 400px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+div.categorie {
+    margin-top: 60px;
+    margin-bottom: -18px;
+}
+
+div.photoinst {
+    position: relative; 
+}
+
+img.photoinst {
+    display:block;
+    object-fit: cover;
+    min-height: 200px;
+    background-color: lightgray;
+
+}
+
+table.photoinst {
+    position: absolute; 
+    bottom: 0; 
+    width:100%; 
+    color: white; 
+    background-color: #6d829dC0; 
+    height:80px;
+}
+
+table.photoinst td {
+    text-align: center;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+table.photoinst th {
+    vertical-align: bottom;
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 8px;
+}
+
+div.colonne {
+    width: 45%;
+    margin-top: 10px;
+}
+
+div.colonne h2{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    border-bottom: 5px solid #8BA1BB;
+    padding-bottom: 5px;
+}
+
+div.colonne1 {
+    display: inline-block;
+}
+
+div.colonne2 {
+    float: right;
+}
