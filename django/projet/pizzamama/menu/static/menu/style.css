@@ -1,0 +1,76 @@
+li {
+    color: blue;
+}
+
+body {
+    background: url("images/menu_background.jpg") no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    color: white;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+#logo{
+    margin-top: 25px;
+    margin-left: 35px;
+}
+
+h1 {
+    background-color: #dd7835;
+    display: inline;
+    padding: 8px 22px;
+
+}
+
+.menu_title {
+    margin-top: 45px;
+    margin-bottom: 50px;
+
+}
+
+.menu_list {
+    margin-left: 30px;
+}
+
+.menu_list_item {
+    margin: 30px 25px;
+}
+
+.menu_list_item_title {
+    font-weight: bold;
+    font-size: 20px ;
+    width: 350px;
+    display: inline-block;
+}
+
+.menu_list_item_price {
+    font-size: 20px;
+    color: #dd7835;
+    display: inline-block;
+    margin-left: 8px;
+    width: 70px;
+    text-align: right;
+}
+
+.menu_list_item_ing {
+    color: #C8C8C8;
+    font-size: 14px;
+    margin-top: 4px;
+    display: block;
+    width: 350px;
+}
+
+.menu_list_item_vegan {
+    background-color: forestgreen;
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    padding: 3px 5px;
+    margin-top: 5px;
+    border-radius: 2px;
+}

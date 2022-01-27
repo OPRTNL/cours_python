@@ -1,0 +1,29 @@
+{% load static%}
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Menu des pizzas</title>
+        <link rel="stylesheet" href="{% static 'menu/style.css' %}">
+    </head>
+    <body>
+
+        <img src="{% static 'menu/images/small_logo.png' %}" alt="logo_pizzamma" id="logo">
+        <div class="menu_title">
+            <h1>Les pizzas</h1>
+        </div>
+
+        <div class="menu_list">
+            {% for pizza in pizzas%}
+            <div class = "menu_list_item">
+                <span class="menu_list_item_title">{{pizza.nom}}</span>
+                <span class="menu_list_item_price">{{pizza.prix | floatformat:2}}€</span>
+                <span class="menu_list_item_ing">{{pizza.ingredients}}</span>
+                {% if pizza.vegan %}
+                    <span class="menu_list_item_vegan">Vegetarienne</span>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+
+</html>
