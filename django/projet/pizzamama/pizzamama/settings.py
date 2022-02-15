@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-()iq!x_dzn1j6@*%3@0om0q@g48#_$55-8r681-g4ws=qgr4gd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pizzamamadjangopythontest.herokuapp.com']
 
 
 # Application definition
