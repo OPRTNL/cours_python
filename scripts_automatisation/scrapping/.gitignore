@@ -6,7 +6,7 @@
 *.exe
 *.o
 *.so
-.csv
+*.csv
 
 # Packages #
 ############
@@ -39,4 +39,5 @@ ehthumbs.db
 Thumbs.db
 test73.txt
 emails_config.py
-.csv
+*.csv
+*.hmtl
